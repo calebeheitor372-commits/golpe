@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SISTEMA</title>
+
+<style>
+
+body{
+background:black;
+color:red;
+font-family:monospace;
+padding:20px;
+font-size:28px;
+overflow:hidden;
+animation:fundo 0.2s infinite;
+}
+
+#terminal{
+white-space:pre-line;
+}
+
+.barra{
+
+width:100%;
+height:30px;
+border:2px solid red;
+margin-top:20px;
+
+}
+
+.progresso{
+
+width:0%;
+height:100%;
+background:red;
+animation:carregar 8s linear forwards;
+
+}
+
+@keyframes carregar{
+
+0%{width:0%;}
+100%{width:100%;}
+
+}
+
+@keyframes fundo{
+
+50%{
+background:#200000;
+}
+
+}
+
+.pisca{
+
+animation:pisca 0.1s infinite;
+
+}
+
+@keyframes pisca{
+
+50%{
+opacity:0.5;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="terminal" class="pisca">
+INICIANDO SISTEMA...
+</div>
+
+<div class="barra">
+<div class="progresso"></div>
+</div>
+
+<script>
+
+const msgs = [
+
+"",
+"⚠ ERRO CRÍTICO ⚠",
+"",
+"Conectando ao satélite...",
+"",
+"Rastreando dispositivo...",
+"",
+"Buscando arquivos secretos...",
+"",
+"Enviando dados...",
+"",
+"ACESSO TOTAL CONCEDIDO",
+"",
+"☠ DISPOSITIVO COMPROMETIDO ☠",
+"",
+"😂 RELAXA! ERA SÓ UMA PEGADINHA 😂"
+
+];
+
+let i = 0;
+
+function escrever(){
+
+if(i < msgs.length){
+
+document.getElementById("terminal").innerHTML += "\n" + msgs[i];
+
+i++;
+
+setTimeout(escrever,700);
+
+}
+
+}
+
+setTimeout(escrever,1000);
+
+</script>
+
+</body>
+</html>
